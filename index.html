@@ -1,13 +1,385 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Naturia サポート</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NATURIA GODO KAISHA</title>
+  <meta name="description" content="NATURIA GODO KAISHA is a Japanese software company focused on mobile application and game development." />
+  <style>
+    :root {
+      --green: #1f8f5f;
+      --green-dark: #126342;
+      --bg: #f5f7f4;
+      --text: #1d2a24;
+      --muted: #607168;
+      --card: #ffffff;
+      --border: #dfe7e2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffffcc;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--green-dark);
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-dark);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(31, 143, 95, 0.16), transparent 34%),
+        linear-gradient(135deg, #ffffff 0%, #eaf4ee 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 96px 24px 84px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #e2f3ea;
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--green-dark);
+    }
+
+    .lead {
+      max-width: 720px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin: 0 0 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(18, 99, 66, 0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: var(--green-dark);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .product-visual {
+      background: linear-gradient(135deg, #1f8f5f, #8ed6a8);
+      color: white;
+      border-radius: 24px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 260px;
+      box-shadow: 0 18px 40px rgba(18, 99, 66, 0.18);
+    }
+
+    .product-visual span {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .product-visual strong {
+      display: block;
+      font-size: 42px;
+      letter-spacing: -0.03em;
+      margin-top: 8px;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      width: 220px;
+      color: var(--green-dark);
+      background: #f0f7f3;
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    a {
+      color: var(--green-dark);
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: white;
+      padding: 28px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .hero-inner {
+        padding: 72px 20px 64px;
+      }
+
+      main {
+        padding: 48px 20px;
+      }
+
+      .grid,
+      .product {
+        grid-template-columns: 1fr;
+      }
+
+      .info-table th,
+      .info-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .info-table th {
+        border-bottom: none;
+        padding-bottom: 6px;
+      }
+
+      .info-table td {
+        padding-top: 6px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Naturia サポート</h1>
-  <p>お問い合わせは以下のメールアドレスまでご連絡ください。</p>
-  <p>Email: naturia333@gmail.com</p>
-  <p>通常2〜3営業日以内に返信いたします。</p>
+  <header>
+    <div class="nav">
+      <div class="logo">NATURIA GODO KAISHA</div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#product">Product</a>
+        <a href="#company">Company</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="badge">Mobile App & Game Development</div>
+      <h1>Creating mobile experiences inspired by nature.</h1>
+      <p class="lead">
+        NATURIA GODO KAISHA is a Japanese software company focused on mobile application,
+        game development, AI-powered experiences, and educational entertainment apps.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Mobile Game Development</h3>
+          <p>Planning and development of mobile games for iOS and Android platforms.</p>
+        </div>
+        <div class="card">
+          <h3>AI-Powered Applications</h3>
+          <p>Development of applications using image recognition and AI-assisted user experiences.</p>
+        </div>
+        <div class="card">
+          <h3>Educational Apps</h3>
+          <p>Creation of simple and practical learning tools for students and general users.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="product">
+      <h2>Main Product</h2>
+      <div class="product">
+        <div class="product-visual">
+          <span>Mobile Game Project</span>
+          <strong>Naturia</strong>
+        </div>
+        <div class="card">
+          <h3>Naturia</h3>
+          <p>
+            Naturia is a creature discovery and collection mobile game currently under development
+            for iOS and Android. The project combines nature-inspired gameplay, creature collection,
+            and mobile entertainment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="company">
+      <h2>Company Information</h2>
+      <table class="info-table">
+        <tr>
+          <th>Company Name</th>
+          <td>NATURIA GODO KAISHA</td>
+        </tr>
+        <tr>
+          <th>Business</th>
+          <td>Mobile application development, game development, and software services.</td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td>Tokyo, Japan</td>
+        </tr>
+        <tr>
+          <th>Representative</th>
+          <td>Ryo Matsuura</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <h3>Business Inquiries</h3>
+        <p>
+          Email: <a href="mailto:apple@naturia-app.com">apple@naturia-app.com</a>
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Privacy Policy</h2>
+      <div class="card">
+        <p>
+          Please see our privacy policy here:
+          <a href="privacy.html">Privacy Policy</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 NATURIA GODO KAISHA. All rights reserved.</span>
+      <span>naturia-app.com</span>
+    </div>
+  </footer>
 </body>
 </html>
